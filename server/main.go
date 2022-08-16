@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 
+	"seshat-server/db"
+
 	tmdb "github.com/cyruzin/golang-tmdb"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
@@ -68,6 +70,16 @@ func search(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, results)
 }
 
+func log(c *gin.Context) {
+	var m db.Movie
+	if jsonParseErr := c.BindJSON(&m); jsonParseErr != nil {
+		panic(jsonParseErr)
+	}
+
+	db.InitNotion()
+	db.Request(m.ToPageRequest())
+}
+
 func main() {
 	router := gin.Default()
 	config := cors.DefaultConfig()
@@ -75,6 +87,7 @@ func main() {
 	router.Use(cors.New(config))
 
 	router.GET("/search", search)
+	router.POST("/log", log)
 
 	router.Run("0.0.0.0:8080")
 }
