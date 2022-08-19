@@ -5,12 +5,12 @@ type Rating struct {
 }
 
 type Movie struct {
-	Id       RichText
-	Title    Title
-	Year     Number
-	Poster   File
-	Director MultiSelect
-	Rating   Rating
-	Genre    MultiSelect
-	Watched  Date
+	Id        RichText
+	Title     Title
+	Year      Number
+	Poster    File
+	Directors MultiSelect
+	Rating    Rating
+	Genre     MultiSelect
+	Watched   Date
 }

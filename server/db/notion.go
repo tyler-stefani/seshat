@@ -38,7 +38,7 @@ func (m *Movie) ToPageRequest() *notionapi.PageCreateRequest {
 		"ID":         m.Id.ConvertToProperty(),
 		"Title":      m.Title.ConvertToProperty(),
 		"Year":       m.Year.ConvertToProperty(),
-		"Director":   m.Director.ConvertToProperty(),
+		"Director":   m.Directors.ConvertToProperty(),
 		"Genre":      m.Genre.ConvertToProperty(),
 		"Enjoyment":  m.Rating.Enjoyment.ConvertToProperty(),
 		"Feel":       m.Rating.Feel.ConvertToProperty(),

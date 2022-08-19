@@ -24,7 +24,9 @@ export default function RatingScoreInput({
   return (
     <label htmlFor={category.toLowerCase + "-" + score.toString}>
       <input
-        {...register(category.toLowerCase() as Category)}
+        {...register(category.toLowerCase() as Category, {
+          valueAsNumber: true,
+        })}
         type="radio"
         name={category.toLowerCase()}
         value={score}

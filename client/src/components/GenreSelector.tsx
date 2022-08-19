@@ -36,7 +36,7 @@ export default function GenreSelector({ register }: GenreSelectorProps) {
         multiple
       >
         {GENRES.map((genre) => {
-          return <option value={genre.toLowerCase()}>{genre}</option>
+          return <option value={genre}>{genre}</option>
         })}
       </select>
     </label>
