@@ -79,14 +79,14 @@ export default function RatingForm({
   }
 
   return (
-    <form className="flex flex-col p-2" onSubmit={handleSubmit(onSubmit)}>
+    <form className='flex flex-col p-2' onSubmit={handleSubmit(onSubmit)}>
       <MovieInfo poster={poster} title={name} director={directors[0]} />
       <WatchedDateInput register={register} />
       {CATEGORIES.map((category) => (
         <RatingCategory register={register} category={category} />
       ))}
       <GenreSelector register={register} />
-      <input type="submit" value="Submit" />
+      <input type='submit' value='Submit' />
     </form>
   )
 }

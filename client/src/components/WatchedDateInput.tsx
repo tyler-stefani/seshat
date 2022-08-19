@@ -1,5 +1,5 @@
-import { UseFormRegister } from "react-hook-form"
-import { FormValues } from "./RatingForm"
+import { UseFormRegister } from 'react-hook-form'
+import { FormValues } from './RatingForm'
 
 type DateInputProps = {
   register: UseFormRegister<FormValues>
@@ -8,10 +8,10 @@ type DateInputProps = {
 export default function WatchedDateInput({ register }: DateInputProps) {
   return (
     <input
-      {...register("watchedDate")}
-      id="watchedDate"
-      name="watchedDate"
-      type="date"
+      {...register('watchedDate')}
+      id='watchedDate'
+      name='watchedDate'
+      type='date'
     />
   )
 }

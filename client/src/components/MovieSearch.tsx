@@ -1,4 +1,4 @@
-import { SetStateAction, useEffect, useState } from "react"
+import { SetStateAction, useEffect, useState } from 'react'
 
 export enum Form {
   Movie,
@@ -10,7 +10,7 @@ type SearchProps = {
 }
 
 function MovieSearch({ onAutofill }: SearchProps) {
-  const [nameInput, setNameInput] = useState("")
+  const [nameInput, setNameInput] = useState('')
   const [yearInput, setYearInput] = useState(2022)
   const [formInput, setFormInput] = useState(Form.Movie)
 
@@ -38,8 +38,8 @@ function MovieSearch({ onAutofill }: SearchProps) {
 
   return (
     <>
-      <input type="text" value={nameInput} onChange={handleNameChange} />
-      <input type="number" value={yearInput} onChange={handleYearChange} />
+      <input type='text' value={nameInput} onChange={handleNameChange} />
+      <input type='number' value={yearInput} onChange={handleYearChange} />
       <select value={formInput} onChange={handleFormChange}>
         <option value={Form.Movie}>Movie</option>
         <option value={Form.Series}>Series</option>

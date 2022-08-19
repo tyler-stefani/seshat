@@ -1,6 +1,6 @@
-import { UseFormRegister } from "react-hook-form"
-import { FormValues } from "./RatingForm"
-import RatingScoreInput from "./RatingScoreInput"
+import { UseFormRegister } from 'react-hook-form'
+import { FormValues } from './RatingForm'
+import RatingScoreInput from './RatingScoreInput'
 
 type RatingCategoryProps = {
   register: UseFormRegister<FormValues>

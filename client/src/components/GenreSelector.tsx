@@ -1,23 +1,23 @@
-import { UseFormRegister } from "react-hook-form"
-import { FormValues } from "./RatingForm"
+import { UseFormRegister } from 'react-hook-form'
+import { FormValues } from './RatingForm'
 
 const GENRES = [
-  "Action",
-  "BioPic",
-  "Comedy",
-  "Dark Comedy",
-  "Documentary",
-  "Drama",
-  "Dramedy",
-  "Family",
-  "Fantasy",
-  "Horror",
-  "Musical",
-  "Romance",
-  "RomCom",
-  "SciFi",
-  "Superhero",
-  "Thriller",
+  'Action',
+  'BioPic',
+  'Comedy',
+  'Dark Comedy',
+  'Documentary',
+  'Drama',
+  'Dramedy',
+  'Family',
+  'Fantasy',
+  'Horror',
+  'Musical',
+  'Romance',
+  'RomCom',
+  'SciFi',
+  'Superhero',
+  'Thriller',
 ]
 
 type GenreSelectorProps = {
@@ -26,13 +26,13 @@ type GenreSelectorProps = {
 
 export default function GenreSelector({ register }: GenreSelectorProps) {
   return (
-    <label className="block text-left w-64">
-      <span className="text-gray-700">Genre</span>
+    <label className='block text-left w-64'>
+      <span className='text-gray-700'>Genre</span>
       <select
-        {...register("genre")}
-        className="border-slate-400 border-2 rounded form-multiselect block w-full my-1 "
-        id="genre"
-        name="genre"
+        {...register('genre')}
+        className='border-slate-400 border-2 rounded form-multiselect block w-full my-1 '
+        id='genre'
+        name='genre'
         multiple
       >
         {GENRES.map((genre) => {

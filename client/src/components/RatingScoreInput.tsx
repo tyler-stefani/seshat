@@ -1,5 +1,5 @@
-import { UseFormRegister } from "react-hook-form"
-import { FormValues } from "./RatingForm"
+import { UseFormRegister } from 'react-hook-form'
+import { FormValues } from './RatingForm'
 
 type RatingScoreInputProps = {
   register: UseFormRegister<FormValues>
@@ -8,13 +8,13 @@ type RatingScoreInputProps = {
 }
 
 type Category =
-  | "enjoyment"
-  | "feel"
-  | "style"
-  | "characters"
-  | "narrative"
-  | "impact"
-  | "interest"
+  | 'enjoyment'
+  | 'feel'
+  | 'style'
+  | 'characters'
+  | 'narrative'
+  | 'impact'
+  | 'interest'
 
 export default function RatingScoreInput({
   register,
@@ -22,15 +22,15 @@ export default function RatingScoreInput({
   score,
 }: RatingScoreInputProps) {
   return (
-    <label htmlFor={category.toLowerCase + "-" + score.toString}>
+    <label htmlFor={category.toLowerCase + '-' + score.toString}>
       <input
         {...register(category.toLowerCase() as Category, {
           valueAsNumber: true,
         })}
-        type="radio"
+        type='radio'
         name={category.toLowerCase()}
         value={score}
-        id={category.toLowerCase + "-" + score.toString}
+        id={category.toLowerCase + '-' + score.toString}
       />
       {score}
     </label>

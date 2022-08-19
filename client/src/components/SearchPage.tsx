@@ -1,6 +1,6 @@
-import { useState } from "react"
-import MovieInfo from "./MovieInfo"
-import MovieSearch, { Form } from "./MovieSearch"
+import { useState } from 'react'
+import MovieInfo from './MovieInfo'
+import MovieSearch, { Form } from './MovieSearch'
 
 type Result = {
   name: string
@@ -13,16 +13,16 @@ export default function SearchPage() {
   const [searchResults, setSearchResults] = useState<Result[]>([])
 
   const getOptions = (name: string, year: number, form: Form) => {
-    if (name === "" && year === 2022 && form === Form.Movie) {
+    if (name === '' && year === 2022 && form === Form.Movie) {
     } else {
-      const url = new URL("http://localhost:8080/search")
-      url.searchParams.append("name", name)
-      url.searchParams.append("year", "" + year)
-      url.searchParams.append("form", form.toString())
+      const url = new URL('http://localhost:8080/search')
+      url.searchParams.append('name', name)
+      url.searchParams.append('year', '' + year)
+      url.searchParams.append('form', form.toString())
 
       fetch(url, {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       })
         .then((response) => response.json())
@@ -39,7 +39,7 @@ export default function SearchPage() {
         <MovieInfo
           poster={result.poster}
           title={result.name}
-          director={result.directors.length > 0 ? result.directors[0] : ""}
+          director={result.directors.length > 0 ? result.directors[0] : ''}
         />
       ))}
     </>
