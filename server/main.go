@@ -14,6 +14,7 @@ import (
 )
 
 type basicMovie struct {
+	ID        string   `json:"id"`
 	Name      string   `json:"name"`
 	Year      int      `json:"year"`
 	Directors []string `json:"directors"`
@@ -58,6 +59,7 @@ func search(c *gin.Context) {
 		}
 
 		var currMovie = &basicMovie{
+			ID:        strconv.Itoa(id),
 			Name:      name,
 			Year:      year,
 			Directors: directors,

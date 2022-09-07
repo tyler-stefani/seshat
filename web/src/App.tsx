@@ -1,34 +1,44 @@
+import { useState } from 'react'
 import RatingForm from './components/RatingForm'
 import SearchPage from './components/SearchPage'
 
+export type Result = {
+  id: ''
+  name: string
+  year: number
+  directors: string[]
+  poster: string
+}
+
+const DEFAULT_RESULT: Result = {
+  id: '',
+  name: '',
+  year: 2022,
+  directors: [],
+  poster: '',
+}
+
 function App() {
-  const MOVIES = [
-    {
-      id: '760104',
-      year: 2022,
-      poster:
-        'https://image.tmdb.org/t/p/original/woTQx9Q4b8aO13jR9dsj8C9JESy.jpg',
-      title: 'X',
-      directors: ['Ti West'],
-    },
-    // {
-    //   poster:
-    //     "https://image.tmdb.org/t/p/original/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
-    //   title: "Parasite (기생충)",
-    //   director: "Bong Joon-ho",
-    // },
-  ]
+  const [result, setResults] = useState(DEFAULT_RESULT)
+  const [isResultSelected, setIsResultSelected] = useState(false)
+
+  function handleSelection(result: Result) {
+    setResults(result)
+    setIsResultSelected(true)
+  }
+
+  function handleLog() {
+    setResults(DEFAULT_RESULT)
+    setIsResultSelected(false)
+  }
 
   return (
     <>
-      {/* <SearchPage /> */}
-      <RatingForm
-        id={MOVIES[0].id}
-        name={MOVIES[0].title}
-        year={MOVIES[0].year}
-        directors={MOVIES[0].directors}
-        poster={MOVIES[0].poster}
-      />
+      {isResultSelected ? (
+        <RatingForm result={result} onLog={handleLog} />
+      ) : (
+        <SearchPage onSelect={handleSelection} />
+      )}
     </>
   )
 }

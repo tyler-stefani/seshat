@@ -1,15 +1,13 @@
 import { useForm } from 'react-hook-form'
+import { Result } from '../App'
 import GenreSelector from './GenreSelector'
 import MovieInfo from './MovieInfo'
 import RatingCategory from './RatingCategory'
 import WatchedDateInput from './WatchedDateInput'
 
 type RatingFormProps = {
-  id: string
-  name: string
-  year: number
-  directors: string[]
-  poster: string
+  result: Result
+  onLog: () => void
 }
 
 export type FormValues = {
@@ -34,27 +32,21 @@ const CATEGORIES = [
   'Interest',
 ]
 
-export default function RatingForm({
-  id,
-  name,
-  year,
-  directors,
-  poster,
-}: RatingFormProps) {
+export default function RatingForm({ result, onLog }: RatingFormProps) {
   const { register, handleSubmit } = useForm<FormValues>()
 
   const onSubmit = (data: FormValues) => {
     const movie = {
-      id: id,
-      title: name,
-      year: year,
-      poster: poster,
-      directors: directors,
+      id: result.id,
+      title: result.name,
+      year: result.year,
+      poster: result.poster,
+      directors: result.directors,
       rating: {
         enjoyment: parseInt(data.enjoyment),
         feel: parseInt(data.feel),
         style: parseInt(data.style),
-        chatacters: parseInt(data.characters),
+        characters: parseInt(data.characters),
         narrative: parseInt(data.narrative),
         impact: parseInt(data.impact),
         interest: parseInt(data.interest),
@@ -76,11 +68,12 @@ export default function RatingForm({
       .catch((error) => {
         console.error('Error:', error)
       })
+    onLog()
   }
 
   return (
     <form className='flex flex-col p-2' onSubmit={handleSubmit(onSubmit)}>
-      <MovieInfo poster={poster} title={name} director={directors[0]} />
+      <MovieInfo result={result} onClick={() => {}} />
       <WatchedDateInput register={register} />
       {CATEGORIES.map((category) => (
         <RatingCategory register={register} category={category} />

@@ -1,15 +1,13 @@
 import { useState } from 'react'
+import { Result } from '../App'
 import MovieInfo from './MovieInfo'
 import MovieSearch, { Form } from './MovieSearch'
 
-type Result = {
-  name: string
-  year: number
-  directors: string[]
-  poster: string
+type SearchPageProps = {
+  onSelect: (result: Result) => void
 }
 
-export default function SearchPage() {
+export default function SearchPage({ onSelect }: SearchPageProps) {
   const [searchResults, setSearchResults] = useState<Result[]>([])
 
   const getOptions = (name: string, year: number, form: Form) => {
@@ -36,11 +34,7 @@ export default function SearchPage() {
     <>
       <MovieSearch onAutofill={getOptions} />
       {searchResults.map((result) => (
-        <MovieInfo
-          poster={result.poster}
-          title={result.name}
-          director={result.directors.length > 0 ? result.directors[0] : ''}
-        />
+        <MovieInfo onClick={onSelect} result={result} />
       ))}
     </>
   )
