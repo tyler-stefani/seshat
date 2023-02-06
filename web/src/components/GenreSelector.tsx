@@ -3,21 +3,29 @@ import { FormValues } from './RatingForm'
 
 const GENRES = [
   'Action',
-  'BioPic',
+  'Adventure',
+  'Animated',
+  'Anthology',
+  'Biopic',
   'Comedy',
+  'Coming of Age',
+  'Crime',
   'Dark Comedy',
   'Documentary',
   'Drama',
-  'Dramedy',
   'Family',
   'Fantasy',
+  'History',
   'Horror',
   'Musical',
+  'Mystery',
   'Romance',
-  'RomCom',
   'SciFi',
+  'Slasher',
   'Superhero',
   'Thriller',
+  'War',
+  'Western',
 ]
 
 type GenreSelectorProps = {

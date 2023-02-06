@@ -36,12 +36,8 @@ export default function RatingForm({ result, onLog }: RatingFormProps) {
   const { register, handleSubmit } = useForm<FormValues>()
 
   const onSubmit = (data: FormValues) => {
-    const movie = {
-      id: result.id,
-      title: result.name,
-      year: result.year,
-      poster: result.poster,
-      directors: result.directors,
+    const watch = {
+      movieID: result.ID,
       rating: {
         enjoyment: parseInt(data.enjoyment),
         feel: parseInt(data.feel),
@@ -52,19 +48,16 @@ export default function RatingForm({ result, onLog }: RatingFormProps) {
         interest: parseInt(data.interest),
       },
       genre: data.genre,
-      watched: data.watchedDate,
+      date: new Date(data.watchedDate).toISOString(),
     }
     fetch('http://localhost:8080/log', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(movie),
+      body: JSON.stringify(watch),
     })
       .then((response) => response.json)
-      .then((_) => {
-        console.log('Success:')
-      })
       .catch((error) => {
         console.error('Error:', error)
       })

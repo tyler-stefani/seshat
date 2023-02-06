@@ -27,6 +27,9 @@ export default function SearchPage({ onSelect }: SearchPageProps) {
         .then((movies) => {
           setSearchResults(movies)
         })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
     }
   }
 

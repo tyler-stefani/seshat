@@ -10,4 +10,5 @@ services:
     environment:
       TMDB_API_KEY: ${TMDB_API_KEY}
       NOTION_API_KEY: ${NOTION_API_KEY}
-      NOTION_DB_ID: ${NOTION_DB_ID}
+      MOVIE_DB_ID: ${MOVIE_DB_ID}
+      WATCH_DB_ID: ${WATCH_DB_ID}

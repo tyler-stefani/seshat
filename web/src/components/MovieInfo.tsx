@@ -12,9 +12,9 @@ function MovieInfo({ result, onClick }: MovieProps) {
 
   return (
     <div className='w-64' onClick={handleSelection}>
-      <img src={result.poster} className='w-full'></img>
-      <h2>{result.name}</h2>
-      <p>{result.directors.length > 0 ? result.directors[0] : ''}</p>
+      <img src={result.PosterURL} className='w-full'></img>
+      <h2>{result.Title}</h2>
+      <p>{result.Director.length > 0 ? result.Director[0] : ''}</p>
     </div>
   )
 }
